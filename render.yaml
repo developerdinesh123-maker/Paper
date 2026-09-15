@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: invoice-paperclip-app
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    envVars:
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_MODEL
+        value: openai/gpt-4.1-mini
+      - key: GITHUB_MODELS_BASE_URL
+        value: https://models.github.ai/inference
